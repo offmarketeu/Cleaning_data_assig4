@@ -15,8 +15,7 @@ the zipped dataset file.
 
 ## Conventions followed
 
-Processing code and dataset variable naming follows the conventions described in 
-[Google R Styde Guide](http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml).
+
 
 ## Data sets
 
@@ -44,8 +43,6 @@ Original variable names were modified in the follonwing way:
  3. Removed parenthesis `-()`
  4. Replaced `BodyBody` with `Body`
 
-It should be noted that the variable names are formatted in camelCase, as described in 
-[Google R Styde Guide](http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml). 
 
 #### Sample of renamed variables compared to original variable name
 

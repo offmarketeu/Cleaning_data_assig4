@@ -1,4 +1,4 @@
-Getting and Cleaning Data (Coursera). Course Project Codebook
+Getting and Cleaning Data Assignment 4 Code book
 ==============================================================
 
 

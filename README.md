@@ -1,7 +1,7 @@
 
 ## Assignment 4 
 
-# This file explain how the code run_analysys works
+# This file explain how the code run_analysis works
 
 library(reshape2)
 
@@ -46,12 +46,22 @@ total_file <- rbind(sub_train, sub_test)
 
 # Choose subject, activity and all mean and std feactures
 
-#Only mean and std file
+#Only mean() and std() var
 
 total_file21<- total_file[,1:2]
-rec<- grep("[Mm]ean|[Ss]td", colnames(total_file))
+rec<- grep("mean\\(|std\\(", names(total_file))
 total_file22<- total_file[,rec]
 total_file2<- cbind(total_file21, total_file22)
+
+# Change variable names to make them more readable
+
+# Change variable names
+
+colnames(total_file2) <- sub("-mean", "Mean", names(total_file2))
+colnames(total_file2) <- sub("-std", "Std", names(total_file2))
+colnames(total_file2) <- sub("\\()-", "", names(total_file2))
+colnames(total_file2) <- sub("\\()", "", names(total_file2))
+
 
 # Create the final tidy data generating average features by subject and activity. This is the file you can fine in the repo
 

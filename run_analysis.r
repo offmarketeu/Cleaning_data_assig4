@@ -17,7 +17,6 @@ activity <- act_labs$label[match(y_train$id, act_labs$id)]
 sub_train<- cbind(sub_train, activity, x_train)
 
 
-
 #test sets
 
 sub_test<- read.table("subject_test.txt")

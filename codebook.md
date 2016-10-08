@@ -21,17 +21,13 @@ the zipped dataset file.
 
 ### Raw data set
 
-The raw dataset was created using the following regular expression to filter out required
-features, eg. the measurements on the mean and standard deviation for each measurement
-from the original feature vector set 
+The raw dataset was created merging train and test sets and previusly was adding the subject and the activity label.
+That's create a data set of 10299 rows and 563 columns called 'total_file' 
 
-`-(mean|std)\\(`
+From this data set we extract only mean() and std() variables selecting 66 features from the original data set.
+Combined with subject identifiers `subject` and activity labels `activity`, this makes up the
+68 variables of the processed raw data set call 'total_file2'.
 
-This regular expression selects 66 features from the original data set.
-Combined with subject identifiers `subject` and activity labels `label`, this makes up the
-68 variables of the processed raw data set.
-
-The training and test subsets of the original dataset were combined to produce final raw dataset.
 
 ### Tidy data set
 
@@ -41,7 +37,7 @@ Original variable names were modified in the follonwing way:
  1. Replaced `-mean` with `Mean`
  2. Replaced `-std` with `Std`
  3. Removed parenthesis `-()`
- 4. Replaced `BodyBody` with `Body`
+ 
 
 
 #### Sample of renamed variables compared to original variable name
@@ -49,7 +45,7 @@ Original variable names were modified in the follonwing way:
  Raw data            | Tidy data 
  --------------------|--------------
  `subject`           | `subject`
- `label`             | `label`
+ `activity`          | `activity`
  `tBodyAcc-mean()-X` | `tBodyAccMeanX`
  `tBodyAcc-mean()-Y` | `tBodyAccMeanY`
  `tBodyAcc-mean()-Z` | `tBodyAccMeanZ`

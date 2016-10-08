@@ -38,7 +38,7 @@ colnames(y_test)<- c("id")
 activity <- act_labs$label[match(y_test$id, act_labs$id)]
 sub_test<- cbind(sub_test, activity, x_test)
 
-# Combine by row both sets creating a dataframe with 10290 rows and 563 columns
+# Combine by row both sets creating a dataframe with 10299 rows and 563 columns (561 variables +  subject id + activity)
 
 #total file
 

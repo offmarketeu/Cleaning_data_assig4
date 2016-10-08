@@ -29,21 +29,32 @@ colnames(y_test)<- c("id")
 activity <- act_labs$label[match(y_test$id, act_labs$id)]
 sub_test<- cbind(sub_test, activity, x_test)
 
-# total file
+# total file - merge test and train sets 
 
 total_file <- rbind(sub_train, sub_test) 
-#write.table(total_file, "tidydata.txt", sep=";")
+#write.table(total_file, "tidydata.txt", row.name=FALSE sep=";")
 
-#Only mean and std
+# extract only mean() and std() variables
+# if you want to extract all mean variables then substitute
+# by rec<- grep("[Mm]ean|[Ss]td", names(total_file))
 
 total_file21<- total_file[,1:2]
-rec<- grep("[Mm]ean|[Ss]td", colnames(total_file))
+rec<- grep("mean\\(|std\\(", names(total_file))
 total_file22<- total_file[,rec]
 total_file2<- cbind(total_file21, total_file22)
 
+# Change variable names
+
+colnames(total_file2) <- sub("-mean", "Mean", names(total_file2))
+colnames(total_file2) <- sub("-std", "Std", names(total_file2))
+colnames(total_file2) <- sub("\\()-", "", names(total_file2))
+colnames(total_file2) <- sub("\\()", "", names(total_file2))
 
 
-# Step 5
+
+
+
+# Step 5 -final 
 
 total_mest <- melt(total_file2, id = c("subject", "activity"))
 final_data <- dcast(total_mest, subject + activity ~ variable, mean)
